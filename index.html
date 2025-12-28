@@ -149,7 +149,7 @@
     <div class="card-inner">
       <h2 style="margin-top:0">About</h2>
       <p>
-        I am a PhD student at the   
+        I am a PhD student at   
         <a href="https://www.math.uni-leipzig.de/cms2/de/startseite/" target="_blank" rel="noreferrer">Universität Leipzig</a> 
         and part of the 
         <a href="https://www.mis.mpg.de/career/imprs" target="_blank" rel="noreferrer">International Max-Planck Research School (IMPRS) </a>
@@ -214,24 +214,32 @@
         <section class="section" id="research" role="tabpanel" aria-hidden="true">
           <div class="card"><div class="card-inner">
             <h2 style="margin-top:0">Publications & Manuscripts</h2>
-
+            <article class="pub">
+              <div class="pub-title">On the convoy of the ASEP speed process</div>
+              <div class="pub-meta">2025·arXiv:2512.19897</div>
+              <div class="links">
+                <a class="btn" href="https://arxiv.org/pdf/2512.19897">PDF</a>
+                <button class="btn" onclick="toggleAbstract('abs-osp')">Abstract</button>
+              </div>
+              <div id="abs-osp" class="abstract" style="display:none; margin-top:12px;">
+                <p>
+                We study
+                </p>
+              </div>
+            </article>
+            
             <article class="pub">
               <div class="pub-title">The oriented swap process on the half line</div>
-              <div class="pub-meta">2025 · 	arXiv:2503.08341</div>
-              <div class="chips">
-                <span class="chip">Oriented Swap Process</span>
-                <span class="chip">Half space model</span>
-              </div>
+              <div class="pub-meta">2025·arXiv:2503.08341</div>
               <div class="links">
                 <a class="btn" href="https://arxiv.org/pdf/2503.08341">PDF</a>
-                <a class="btn" href="#" onclick="copyBibTex('bibtex-a');return false;">BibTeX</a>
+                <button class="btn" onclick="toggleAbstract('abs-osp')">Abstract</button>
               </div>
-              <pre id="bibtex-a" class="sr-only">@article{tian2025oriented,
-              title={The oriented swap process on half line},
-              author={Tian, Yuan},
-              journal={arXiv preprint arXiv:2503.08341},
-              year={2025}
-              }</pre>
+              <div id="abs-osp" class="abstract" style="display:none; margin-top:12px;">
+                <p>
+                We study
+                </p>
+              </div>
             </article>
 
           </div></div>
