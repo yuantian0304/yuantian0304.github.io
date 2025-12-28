@@ -107,6 +107,18 @@
       padding-left: 12px;
     }
   </style>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)'], ['$', '$']],
+      displayMath: [['\\[', '\\]'], ['$$', '$$']]
+    },
+    options: {
+      skipHtmlTags: ['script','noscript','style','textarea','pre','code']
+    }
+  };
+</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 </head>
 <body>
   <!-- ===== Top Bar ===== -->
@@ -119,7 +131,7 @@
       <nav class="tabs" role="tablist" aria-label="Sections">
         <button class="tab" role="tab" aria-selected="true" data-tab="home">Home</button>
         <button class="tab" role="tab" aria-selected="false" data-tab="research">Research</button>
-        <button class="tab" role="tab" aria-selected="false" data-tab="talks">Talks and Travels</button>
+        <button class="tab" role="tab" aria-selected="false" data-tab="talks">Talks and Conferences</button>
       </nav>
     </div>
   </header>
@@ -143,7 +155,7 @@
           <div class="card-inner">
             <h2 style="margin-top:0">Contact</h2>
             <p> Email: yuan.tian (at) mis.mpg (dot) de </p>
-            <p> Address: Inselstraße 22, 04013 Leipzig, Germany</p>
+            <p> Address: MPI für Mathematik in den Naturwissenschaften, Inselstraße 22, 04013 Leipzig, Germany</p>
             <p> Office: G2 03</p>
           </div>
         </section>
@@ -231,7 +243,11 @@
               </div>
               <div id="abs-osp2" class="abstract" style="display:none; margin-top:12px;">
                 <p>
-                We study
+                We investigate the size of the convoy in the speed process in the multi-species asymmetric simple exclusion process (ASEP). 
+                Through a coupling argument, we obtain an exact formula for the expected convoy size by relating it to a combinatorial structure. 
+                We prove that the asymptotic expected convoy size is universal for all fixed jump rates $q \in [0,1)$. In the special case $q=0$, we upgrade this to full convergence in distribution. 
+                We further establish a critical scaling \( q = 1 - \gamma/\sqrt{n} \) that yields a nontrivial limiting regime. 
+                Our analysis builds on Martin's construction of the convoy and makes use of an orthogonal-polynomial representation of random-walk transition probabilities.
                 </p>
               </div>
             </article>
@@ -245,7 +261,10 @@
               </div>
               <div id="abs-osp" class="abstract" style="display:none; margin-top:12px;">
                 <p>
-                We study
+                In this paper, we study the oriented swap process on the positive integers and its asymptotic 
+                properties. Our results extend a theorem by Angel, Holroyd, and Romik regarding the trajectories of particles in the finite oriented swap process. 
+                Furthermore, we study the evolution ofthe type of a particle at the leftmost position over time. 
+                Our approach relies on a relationship between multi-species particle systems and Hecke algebras, complemented by a detailed asymptotic analysis.
                 </p>
               </div>
             </article>
@@ -258,7 +277,7 @@
         <!-- ===== Talks ===== -->
         <section class="section" id="talks" role="tabpanel" aria-hidden="true">
           <div class="card"><div class="card-inner">
-            <h2 style="margin-top:0">Selected Talks</h2>
+            <h2 style="margin-top:0">Talks</h2>
             <ul>
               <li>"Definable sets in expansions of fields" — Workshop X, 2025.</li>
               <li>"Stability and algebra" — Logic Seminar, 2024.</li>
@@ -303,7 +322,12 @@
   function toggleAbstract(id) {
     const el = document.getElementById(id);
     if (!el) return;
-    el.style.display = (el.style.display === "none") ? "block" : "none";
+
+    const show = (el.style.display === "none" || el.style.display === "");
+    el.style.display = show ? "block" : "none";
+    if (show && window.MathJax) {
+      MathJax.typesetPromise([el]).catch(() => {});
+    }
   }
 </script>
 </body>
