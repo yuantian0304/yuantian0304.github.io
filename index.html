@@ -156,7 +156,7 @@
 
   <div class="container">
     <!-- ===== Hero ===== -->
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="hero-inner">
         <img class="avatar" src="math.jpg" alt="Your avatar" />
         <div>
@@ -337,18 +337,31 @@
   <script>
     // ===== Tabs =====
     const tabs = document.querySelectorAll('.tab');
-    const sections = document.querySelectorAll('.section');
-    tabs.forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        tabs.forEach(t=>t.setAttribute('aria-selected','false'));
-        btn.setAttribute('aria-selected','true');
-        const id = btn.dataset.tab;
-        sections.forEach(s=>{
-          const active = s.id===id; s.classList.toggle('active', active); s.setAttribute('aria-hidden', active? 'false':'true');
-        })
-        window.scrollTo({top:0, behavior:'smooth'});
-      })
-    })
+const sections = document.querySelectorAll('.section');
+const hero = document.getElementById('hero');
+
+tabs.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabs.forEach(t=>t.setAttribute('aria-selected','false'));
+    btn.setAttribute('aria-selected','true');
+
+    const id = btn.dataset.tab;
+
+    sections.forEach(s=>{
+      const active = s.id === id;
+      s.classList.toggle('active', active);
+      s.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+
+    // ✅ show hero only on Home
+    if (hero) {
+      hero.style.display = (id === 'home') ? '' : 'none';
+    }
+
+    window.scrollTo({top:0, behavior:'smooth'});
+  })
+});
+
 
     // ===== Copy BibTeX =====
     function copyBibTex(id){
